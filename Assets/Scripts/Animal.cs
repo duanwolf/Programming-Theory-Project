@@ -14,9 +14,11 @@ public class Animal : MonoBehaviour
     private float minWalkTime = 1f;
     private float walkingTime = 0f;
 
+    //ENCAPSULATION
     protected float WalkingTime { get { return walkingTime; } set { walkingTime = value; } }
     protected SpawnManager spawnManager;
     private float timeRemain;
+    //ENCAPSULATION
     protected float TimeRemain { get { return timeRemain; } set { timeRemain = value; } }
     private void Awake()
     {
@@ -52,6 +54,7 @@ public class Animal : MonoBehaviour
         BoundryCheck();
     }
 
+    //ABSTRACTION
     protected void TimeAliveCheck()
     {
         if (timeRemain <= 0)
@@ -63,6 +66,7 @@ public class Animal : MonoBehaviour
         }
     }
 
+    //ABSTRACTION
     protected void BoundryCheck()
     {
         if (!spawnManager.ValideAnimalPosition(transform.position))
@@ -71,11 +75,8 @@ public class Animal : MonoBehaviour
         }
     }
 
-    protected void TimeRemainCheck()
-    {
 
-    }
-
+    //ABSTRACTION
     public void RandomWalk()
     {
         walkingTime = Random.Range(minWalkTime, maxWalkTime);
